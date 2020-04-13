@@ -12,7 +12,7 @@ const mongoose = require('mongoose');
 //const uri = 'mongodb://localhost:27017/database';
 
 //Conexion en la nube
-const uri = 'mongodb+srv://admin:cM8tYUrNTsJ98OdJ@keafbase-hl68x.mongodb.net/database?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://FernandaM:7453CPSaDfokGcTO@keafmart-1bcj2.mongodb.net/database?retryWrites=true&w=majority';
 
 
 const options = {useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true};
