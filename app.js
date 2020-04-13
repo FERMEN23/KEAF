@@ -14,6 +14,7 @@ const mongoose = require('mongoose');
 //Conexion en la nube
 const uri = 'mongodb+srv://FernandaM:Mendoza23@keafmart-1bcj2.mongodb.net/datebase?retryWrites=true&w=majority';
 
+
 const options = {useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true};
 
 mongoose.connect(uri, options).then(
