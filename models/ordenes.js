@@ -25,8 +25,8 @@ const Ordenes= new Schema({
         quantity:{type:Number,default:1},
         discount:{type:Number,default:0}
         }
-    ]
- 
+    ],
+    estado:{type:String, default:'registrada'}
 });
 
 //Convertir a un modelo
