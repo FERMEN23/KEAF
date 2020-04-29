@@ -40,6 +40,7 @@ app.use('/add',require('./routes/ordenes'));
 app.use('/add',require('./routes/productos'));
 app.use('/add',require('./routes/usuarios'));
 app.use('/add',require('./routes/administradores'));
+app.use('/add',require('./routes/registros'));
 
 // Middleware para Vue.js router modo history
 const history = require('connect-history-api-fallback');
