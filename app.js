@@ -42,6 +42,8 @@ app.use('/add',require('./routes/usuarios'));
 app.use('/add',require('./routes/administradores'));
 app.use('/add',require('./routes/registros'));
 
+//app.use('/app', require('./routes/administradores'));
+app.use('/add', require('./routes/login'));
 // Middleware para Vue.js router modo history
 const history = require('connect-history-api-fallback');
 app.use(history());

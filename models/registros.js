@@ -1,6 +1,13 @@
 import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
 
+const Schema = mongoose.Schema;
+// Roles
+const roles = {
+    values: ['ADMIN', 'USER'],
+    message: '{VALUE} no es un rol válido'
+  }
+  
 const client= new Schema({
     usuario:{type:String,required:[true,'Usuario necesaio']},
     nombre:{type:String, required:[true,'Nombre Requerido']},
@@ -19,6 +26,10 @@ const client= new Schema({
         }
     ]
 });
+
+// Validator
+client.plugin(uniqueValidator, { message: 'Error, esperaba {PATH} único.' });
+
 
 //Convertir a un modelo
 const Cliente=mongoose.model('Cliente',client);

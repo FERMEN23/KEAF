@@ -5,9 +5,18 @@ const router = express.Router();
 
 import Cliente from '../models/registros'
 
+// Hash Contraseña
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+// Filtrar campos de PUT
+const _ = require('underscore');
+
+
 //Agregar una nota
 router.post('/nuevo-cliente',async(req,res)=>{
     const body=req.body;
+    body.password = bcrypt.hashSync(req.body.password, saltRounds);
+  
     try {
         const usuarioDB= await Cliente.create(body);
         res.status(200).json(usuarioDB);
@@ -21,6 +30,11 @@ router.post('/nuevo-cliente',async(req,res)=>{
 
 
 });
+
+router.get('/', function(req, res, next) {
+    res.send('respond with a resource');
+  });
+  
 
 //Get con parametros
 router.get('/cliente/:id',async(req,res)=>{
@@ -75,10 +89,15 @@ router.delete('/cliente/:id',async(req,res)=>{
 //put
 router.put('/cliente/:id',async(req,res)=>{
      const _id=req.params.id;
-     const bodyc=req.body;
+     let body = _.pick(req.body, ['usuario', 'nombre', 'password', 'address','ordenenPrevia']);
+     if(body.password){
+       body.password = bcrypt.hashSync(req.body.password, saltRounds);
+     }
+
+
      try {
         
-        const usuarioDB = await Cliente.findByIdAndUpdate(_id,bodyc,{new: true});
+        const usuarioDB = await Cliente.findByIdAndUpdate(_id,body,{new: true, runValidators: true});
         res.json(usuarioDB);
 
      } catch (error) {
