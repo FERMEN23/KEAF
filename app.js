@@ -7,12 +7,12 @@ import path from 'path';
 const app = express();
 
 //Conexion a DB
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const uri = 'mongodb://localhost:27017/database';
+//const uri = 'mongodb://localhost:27017/database';
 
 //Conexion en la nube
-//const uri = 'mongodb+srv://FernandaM:7453CPSaDfokGcTO@keafmart-1bcj2.mongodb.net/database?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://FernandaM:7453CPSaDfokGcTO@keafmart-1bcj2.mongodb.net/database?retryWrites=true&w=majority';
 
 
 const options = {useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true};
